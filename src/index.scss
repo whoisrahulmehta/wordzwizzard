@@ -1,0 +1,339 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  color: white; //remove lster just for styling
+}
+
+.light{
+  color: black;
+  background-color: antiquewhite;
+}
+.dark{
+  color: white;
+  background-color: black;
+}
+
+%box {
+  border: 1px solid tansparent;
+  border-radius: 20px;
+}
+@mixin FR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin FC {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: space-evenly;
+}
+@mixin MFD {
+  @extend %box;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  // color: white;
+}
+@mixin MFL {
+  @extend %box;
+  background: rgba(0, 0, 0, 1);
+  border-color: rgba(0, 0, 0, 0.2);
+  // color: black;
+}
+.orange {
+  color: orange !important;
+}
+.gold {
+  color: gold !important;
+}
+.btn{
+color: red;
+padding: 8px 12px;
+&:hover{
+  border:1px solid red;
+  color: white;
+}
+}
+.App {
+  width: 100%;
+  height: 100vh;
+  @include FR;
+}
+.content {
+  @include FC;
+  // padding: 10px 08px; // remove acordingly
+  height: 100vh;
+  width: 100%; // just for mobile view styling // set to percentage later
+  background: black;
+  // border-radius: 20px;
+}
+main,
+footer,
+header {
+  width: 100%;
+}
+
+.orderF {
+  order: -1;
+}
+.orderL {
+  order: 1;
+}
+.hoverme {
+  cursor: grab;
+  background: rgba(255, 240, 20, 0.051);
+  border: 1px solid rgba(39, 255, 0, 0.355);
+}
+
+.hoverMouse {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  z-index: 10;
+  pointer-events: none; /* Ensure the circle doesn't interfere with mouse events */
+  transform: translate(-50%, -50%) scale(0.5); /* Center the circle around the cursor */
+  display: none; /* Initially hide the circle */
+  border: 0px solid transparent;
+  box-shadow: 0 0 100px 60px rgba(39, 255, 0, 0.15);
+  backdrop-filter: blur(2px);
+  filter: overlay;
+}
+// header content
+header {
+  @include MFD;
+  border: 0;
+  @include FR;
+  justify-content: center !important;
+  height: 5%;
+  padding: 0 4%;
+
+  .brand {
+    @include FR;
+    gap: 10px;
+    font-size: 2rem;;
+    // width: 30%;
+    b{
+      color: gold;
+    }
+    .logo{
+b{
+  color: red;
+}
+    }
+  }
+}
+//end
+//main section
+main {
+  height: 86%;
+  @include FC;
+  justify-content: start;
+ 
+  .inputField {
+    width: 100%;
+    height: 3%;
+    @include FR;
+    justify-content: center;
+    gap: 40px;
+  }
+  textarea {
+    padding: 5px 5px;
+    resize: none;
+    height: 30px;
+    width: 20%;
+    background: transparent;
+    @include MFD;
+    border-radius: 0;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    &::placeholder {
+      text-align: center;
+    }
+  }
+  .outputField{
+    width: 100%;
+    height: 97%;
+    scrollbar-width: none;
+    // @include MFD;
+    overflow-y: auto;
+
+    @include FR;
+    align-items: start;
+  
+  }
+  .init{
+    margin :auto;
+    @include MFD;
+    padding: 20px 20px;
+  }
+  .pad{
+    height: calc(100% + 500px);
+    width: 100%;
+    overflow-y: auto;
+
+    @include FC;
+    justify-content: start;
+    .resHead{
+      width: 90%;;
+   @include FR;
+   margin: 10px auto;
+   padding: 10px 12px;
+      @include MFD;
+      position: sticky;
+      top:20px;
+      backdrop-filter: blur(3px);
+      span{
+        color: gold;
+        text-transform: uppercase;
+        padding: 0 10px ;
+      }
+    }
+    .resBody{
+      @include FC;
+      gap: 10px;
+      .sources{
+        border-radius: 0;
+        }
+        .counting{
+          color: gold !important;
+          padding: 10px;
+          a{
+            font-size: 0.8rem;
+            padding:3px 8px;
+            color: lightblue;
+          }
+        }
+        .packet{
+          @include MFD;
+          @include FC;
+          justify-content: start;
+          gap: 10px;
+          // border: 1px solid red;
+          padding: 10px 20px;
+          .synonyms{
+            color:lightblue;
+          }
+          .antonyms{
+            color:lightcoral;
+          }
+        h1{
+          width: 100%;
+          @include MFD;
+          text-align: center;
+          b{
+            color: blue;
+            text-transform: uppercase;
+          }
+        }
+       .meanings{
+        @include FC;
+        gap: 4px;
+        .definitions{
+          padding: 20px 05px ;
+          @include MFD;
+        }
+       }
+        }
+    }
+  }
+}
+//end
+// dynamic content
+
+//footer contnet
+footer {
+  @include FR;
+  @include MFD;
+  backdrop-filter: blur(5px);
+  border-radius: 0;
+  overflow-x: auto;
+  overflow-y: none;
+  gap: 5%;
+  scrollbar-width: none;
+  height: 5%;
+  P {
+    padding: 0 10px;
+    span {
+      padding: 0 0 0 10px;
+    }
+  }
+  .cal {
+    @include MFD;
+    @include FR;
+    height: 80%;
+    min-width: 35%;
+    border: 0;
+  }
+}
+//end
+@media screen and (max-width : 512px) {
+  .App{
+    padding: 0;
+  }
+header{
+  height: 12%;
+  flex-direction: column;
+  justify-content: center ;
+  .brand{
+    height:80%;
+  }
+}
+main{
+  height: 80%;
+  .inputField{
+    @include FC;
+    gap: 5px;
+    height:20%;
+    textarea{
+      width:100%;
+    }
+  }
+  .outputField{
+    height:80%;
+  }
+  .definitions{
+    text-align: justify;
+
+
+  }
+
+}
+footer{
+  @include FR;
+  gap:0;
+  font-size: 0.9rem;
+}
+}
+@media screen and (max-width : 800px) {
+  header{
+    justify-content: center;
+    gap: 15px;
+    .btns{
+      justify-content: end;
+    }
+  }
+}
+@media screen and (min-width : 800px) {
+header{
+  order:1;
+}  
+footer{
+  order: -1;
+}
+main{
+  .inputField{
+    order: 1;
+    height: 10%;
+    justify-content: space-evenly;
+
+  }
+  .outputField{
+    height: 90%;;
+    order:-1;
+  }
+}
+}
