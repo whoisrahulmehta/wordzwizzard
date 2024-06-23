@@ -1,0 +1,25 @@
+{
+  "short_name": "WORDZWIZZARD",
+  "name": "MY FIRST DICTIONARY APP, and its the 1st version if it i will make it again as WORDZWIZZARD2.0",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "logo64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "logo32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
